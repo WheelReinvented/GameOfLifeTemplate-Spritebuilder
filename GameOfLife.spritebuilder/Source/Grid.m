@@ -52,7 +52,7 @@ static const int GRID_COLUMNS = 10;
             creature.position = ccp(x, y);
             [self addChild:creature];
             
-            creature.isAlive = YES;
+            // creature.isAlive = YES;
             
             // this is shorthand to access an array inside an array
             _gridArray[i][j] = creature;
@@ -79,9 +79,9 @@ static const int GRID_COLUMNS = 10;
 - (Creature *)creatureForTouchPosition:(CGPoint)touchPosition
 {
     //get the row and column that was touched, return the Creature inside the corresponding cell
-    int x = touchPosition.x / _cellWidth;
-    int y = touchPosition.y / _cellHeight;
-    return _gridArray[x][y];
+    int i = touchPosition.y / _cellHeight;
+    int j = touchPosition.x / _cellWidth;
+    return _gridArray[i][j];
 }
 
 @end
